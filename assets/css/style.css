@@ -3,11 +3,67 @@
 }
 
 .header {
-    background-color: rgb(89, 28, 187);
+    background-color: rgb(39 32 143);
     color: white;
     text-align: right;
     font-size: 30px;
     font-weight: bold;
     padding: 10px;
     padding-right: 33%;
+}
+
+.btn-grey{
+    background: #8080806e;
+    color: black;
+    border-style: none
+}
+
+.container {
+    margin: 10px
+}
+
+.saved {
+    padding: 10px 0;
+}
+
+.saved-list {
+    padding: 0rem;
+ 
+}
+
+.current {
+    border: 1px solid black;
+}
+
+.current-city {
+    padding: 5px;
+}
+
+.current-details {
+    padding: 0px 10px;
+}
+
+.five-day {
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+
+.future-forecast {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+}
+
+.card-column {
+    flex: 1 0 20%;
+    padding: 0 0.5rem 0 1.5rem;
+    transition: flex-basis 500ms linear;
+    margin-bottom: 1.5rem;
+}
+
+.five-day-details {
+    background-color: rgb(44 44 53);
+    color: white;
 }
