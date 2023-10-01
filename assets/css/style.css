@@ -32,6 +32,10 @@
  
 }
 
+#display {
+    display: none
+}
+
 .current-weather {
     border: 1px solid black;
 }

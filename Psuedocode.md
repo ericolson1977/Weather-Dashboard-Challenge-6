@@ -18,10 +18,10 @@
     - parse the JSON response -- DONE
     - Handle errors (e.g, if the city is not found) -- DONE -->
 
-4. Display the current weather conditions (displayCurrentWeather function)
-    - Extract relevant data from the API response (city name, date, icon, temp, humidity, and wind speed)
-    - Create HTML elements to display this data
-    - Update the currentWeatherContainer with the HTML elements
+<!-- 4. Display the current weather conditions (displayCurrentWeather function)
+    - Extract relevant data from the API response (city name, date, icon, temp, humidity, and wind speed) -- DONE
+    - Create HTML elements to display this data -- DONE
+    - Update the currentWeatherContainer with the HTML elements -- DONE -->
 
 5. Display 5-day forecast (displayForecast function)
     - 5 day forecast requires lat and long, so we need to fiure out how to extract lat and long from our currentWeather response

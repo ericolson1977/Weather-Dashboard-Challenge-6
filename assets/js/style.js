@@ -1,5 +1,6 @@
 // alert("working");
 var searchButton = document.getElementById("search-btn");
+var displaySection = document.getElementById("display")
 
 function fetchCurrentWeather (event) {
     var apiKey = "a10bc788276a7c7ca6f89df126f2779a";
@@ -82,5 +83,8 @@ function fetchForecastData (event) {
 } 
 
 
-searchButton.addEventListener('click', fetchCurrentWeather);
+searchButton.addEventListener('click', function (event) {
+    fetchCurrentWeather(event);
+    displaySection.style.display = "block";
+})
     
