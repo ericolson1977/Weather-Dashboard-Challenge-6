@@ -1,22 +1,22 @@
 # 06 Server-Side APIs: Weather Dashboard Psuedo
 
-1. Setup HTML structure for the page, initialize JS variables
-    - create layout sections for the search from, current weather data, forecast data, search history list
-    - Define Api_key variable for the openweather API
-    - Define base URL for the openwather API
-    - Create variables to store references to HTML elements (e.g, searchForm, cityInput, currentWeatherContainer, forecastContainer, searchHistoryContainer)
+<!-- 1. Setup HTML structure for the page, initialize JS variables
+    - create layout sections for the search from, current weather data, forecast data, search history list  -- DONE
+    - Define Api_key variable for the openweather API -- DONE
+    - Define base URL for the openwather API -- DONE
+    - Create variables to store references to HTML elements (e.g, searchForm, cityInput, currentWeatherContainer, forecastContainer, searchHistoryContainer) -- DONE -->
 
-2. Event Listener for form submission 
-    - Add submit event listener to searchForm element
-    - prevent the default form submission
-    - Get the users input from cityInput element
-    - call a function (e.g, fetchWeatherData) with the user's input
+<!-- 2. Event Listener for form submission 
+    - Add submit event listener to searchForm element --DONE
+    - prevent the default form submission -- DONE
+    - Get the users input from cityInput element -- DONE
+    - call a function (e.g, fetchWeatherData) with the user's input --DONE -->
 
-3. Fetch weather data from OpenWeather API (fetchWeatherData function)
-    - construct the API URL using the users input and API Key
-    - fetch data from the API using the constructed URL
-    - parse the JSON response
-    - Handle errors (e.g, if the city is not found)
+<!-- 3. Fetch weather data from OpenWeather API (fetchWeatherData function)
+    - construct the API URL using the users input and API Key -- DONE
+    - fetch data from the API using the constructed URL -- DONE
+    - parse the JSON response -- DONE
+    - Handle errors (e.g, if the city is not found) -- DONE -->
 
 4. Display the current weather conditions (displayCurrentWeather function)
     - Extract relevant data from the API response (city name, date, icon, temp, humidity, and wind speed)

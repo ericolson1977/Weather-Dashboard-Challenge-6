@@ -3,7 +3,8 @@
 }
 
 .header {
-    background-color: rgb(39 32 143);
+    /* background-color: rgb(39 32 143); */
+    background-image: linear-gradient(to right, rgb(97, 95, 141), rgb(19, 10, 141));
     color: white;
     text-align: right;
     font-size: 30px;
@@ -22,33 +23,39 @@
     margin: 10px
 }
 
-.saved {
+#previous-search {
     padding: 10px 0;
 }
 
-.saved-list {
+.search-history {
     padding: 0rem;
  
 }
 
-.current {
+.current-weather {
     border: 1px solid black;
 }
 
-.current-city {
+#current-city {
+    display: flex;
+    align-items: center;
     padding: 5px;
+}
+
+#weather-icon {
+    margin-right: 10px;
 }
 
 .current-details {
     padding: 0px 10px;
 }
 
-.five-day {
+.forecast {
     margin-bottom: 5px;
     margin-top: 10px;
 }
 
-.future-forecast {
+.five-day-forecast {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -64,6 +71,6 @@
 }
 
 .five-day-details {
-    background-color: rgb(44 44 53);
+    background-color: rgb(49, 49, 82);
     color: white;
 }

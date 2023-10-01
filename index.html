@@ -16,15 +16,15 @@
                 <form class ="form">
                     <h4>Search for a City:</h4>
                     <div class="mb-3">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <input id="city-input" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     </div>
                     <div class="d-grid gap-2">
-                        <button type="submit" class= "btn btn-primary">Search</button>
+                        <button type="submit" class= "btn btn-primary" id="search-btn">Search</button>
                     </div>
                 </form>
                 <div>
-                    <h6 class="saved">Previous Searches</h6>
-                    <ul class="saved-list d-grid gap-2">
+                    <h6 id="previous-search">Previous Searches</h6>
+                    <ul class="search-history d-grid gap-2">
                         <button type="button" class="btn btn-secondary btn-grey">test1</button>
                         <button type="button" class="btn btn-secondary btn-grey">test2</button>
                         <button type="button" class="btn btn-secondary btn-grey">test3</button>
@@ -36,17 +36,20 @@
                 </div>
             </div>
             <div class="col-9">
-                <div class="current">
-                    <h5 class="current-city">Test City</h5>
+                <div class="current-weather">
+                    <h5 id="current-city">
+                        <span id="city-name">City</span>
+                        <span ><img id="weather-icon" src="placeholder" alt="weather"></span>
+                    </h5>
                     <ul class="current-details">
-                        <p>test temp</p>
-                        <p>test wind</p>
-                        <p>test hun</p>
+                        <p id="temp">test temp</p>
+                        <p id="wind">test wind</p>
+                        <p id="humidity">test humidity</p>
                     </ul>
                 </div> 
                 <div>
-                    <h5 class="five-day">5-Day Forecast:</h5>
-                        <div class="future-forecast">
+                    <h5 class="forecast">5-Day Forecast:</h5>
+                        <div class="five-day-forecast">
                             <div class="card-column">
                                 <figure class="five-day-details">
                                     <ul>
