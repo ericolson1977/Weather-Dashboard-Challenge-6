@@ -30,8 +30,8 @@
     - Append these to forecastContainer
 
 6. Update search history (updateSearchHistory function)
-    - Add the searched City to the searchHistory array
-    - Store the searchHistory array in local storage (setItem)
+    - Add the searched City to the searchHistory array -- DONE
+    - Store the searchHistory array in local storage (setItem) -- DONE
 
 7. Display search history (displaySearchHistory function)
     - Loop through the searchHistory array and create a clickable list of cities in the seachHistoryContainer
@@ -41,5 +41,5 @@
     - Add a click event listener to the searchHistoryContainer
     - When a city is clicked call the fetchWeatherData function with the selected city
 
-9. Initial page load
-    - Load the search history from local storage and display using displaySearchHistory function
+<!-- 9. Initial page load
+    - Load the search history from local storage and display using displaySearchHistory function -- DONE -->
