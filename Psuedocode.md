@@ -24,8 +24,8 @@
     - Update the currentWeatherContainer with the HTML elements -- DONE -->
 
 5. Display 5-day forecast (displayForecast function)
-    - 5 day forecast requires lat and long, so we need to fiure out how to extract lat and long from our currentWeather response
-    - Extract the 5-day forecast data from the API response
+    <!-- - 5 day forecast requires lat and long, so we need to fiure out how to extract lat and long from our currentWeather response -- DONE
+    - Extract the 5-day forecast data from the API response -- DONE -->
     - Loop through the forecast data and for each, create HTML elements to display (date, icon, temp, wind speed, humidity)
     - Append these to forecastContainer
 
