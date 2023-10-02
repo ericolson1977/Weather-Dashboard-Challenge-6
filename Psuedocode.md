@@ -29,17 +29,17 @@
     - Loop through the forecast data and for each, create HTML elements to display (date, icon, temp, wind speed, humidity)
     - Append these to forecastContainer
 
-6. Update search history (updateSearchHistory function)
+<!-- 6. Update search history (updateSearchHistory function)
     - Add the searched City to the searchHistory array -- DONE
-    - Store the searchHistory array in local storage (setItem) -- DONE
+    - Store the searchHistory array in local storage (setItem) -- DONE -->
 
-7. Display search history (displaySearchHistory function)
-    - Loop through the searchHistory array and create a clickable list of cities in the seachHistoryContainer
-    - Add event listeners to the list of items to allow users to click and view data for a previous search
+<!-- 7. Display search history (displaySearchHistory function)
+    - Loop through the searchHistory array and create a clickable list of cities in the seachHistoryContainer --DONE
+    - Add event listeners to the list of items to allow users to click and view data for a previous search --DONE -->
 
-8. Event listener for search history 
-    - Add a click event listener to the searchHistoryContainer
-    - When a city is clicked call the fetchWeatherData function with the selected city
+<!-- 8. Event listener for search history 
+    - Add a click event listener to the searchHistoryContainer -- DONE
+    - When a city is clicked call the fetchWeatherData function with the selected city -- DONE -->
 
 <!-- 9. Initial page load
     - Load the search history from local storage and display using displaySearchHistory function -- DONE -->

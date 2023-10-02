@@ -2,7 +2,7 @@
 var searchButton = document.getElementById("search-btn");
 var displaySection = document.getElementById("display")
 
-renderSearchHistory()
+
 
 function fetchCurrentWeather (event) {
     var apiKey = "a10bc788276a7c7ca6f89df126f2779a";
@@ -96,11 +96,10 @@ function fetchForecastData () {
 function saveSearch(city) {
     var searchHistory = JSON.parse(localStorage.getItem("searchHistory")) || [];
 
-    searchHistory.push(city);
+    if (!searchHistory.includes(city)) {
+        searchHistory.push(city);
+    }
 
-        if (searchHistory.length > 10) {
-        searchHistory = searchHistory.splice(0, 1);
-        }
     localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
         // console.log(searchHistory);
     
@@ -119,8 +118,8 @@ function renderSearchHistory () {
 
         button.addEventListener("click", function () {
             document.getElementById("city-input").value = city;
-
-            fetchCurrentWeather();
+            fetchCurrentWeather(event);
+            document.getElementById("city-input").value = "";
         });
 
         searchHistoryContainer.appendChild(button);
@@ -128,6 +127,9 @@ function renderSearchHistory () {
 }
 
 searchButton.addEventListener('click', function (event) {
+    event.preventDefault();
     fetchCurrentWeather(event);
+    document.getElementById("city-input").value = "";
 })
-    
+
+renderSearchHistory()

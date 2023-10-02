@@ -13,6 +13,11 @@
     padding-right: 33%;
 }
 
+.form {
+    border-bottom: solid 1px;
+    padding-bottom: 20px;
+}
+
 .btn-grey{
     background: #8080806e;
     color: black;
