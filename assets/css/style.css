@@ -89,3 +89,7 @@
     background-color: rgb(49, 49, 82);
     color: white;
 }
+
+.five-day-item{
+    list-style: none;
+}

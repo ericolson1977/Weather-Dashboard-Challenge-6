@@ -23,11 +23,11 @@
     - Create HTML elements to display this data -- DONE
     - Update the currentWeatherContainer with the HTML elements -- DONE -->
 
-5. Display 5-day forecast (displayForecast function)
-    <!-- - 5 day forecast requires lat and long, so we need to fiure out how to extract lat and long from our currentWeather response -- DONE
-    - Extract the 5-day forecast data from the API response -- DONE -->
-    - Loop through the forecast data and for each, create HTML elements to display (date, icon, temp, wind speed, humidity)
-    - Append these to forecastContainer
+<!-- 5. Display 5-day forecast (displayForecast function)
+    - 5 day forecast requires lat and long, so we need to fiure out how to extract lat and long from our currentWeather response -- DONE
+    - Extract the 5-day forecast data from the API response -- DONE
+    - Loop through the forecast data and for each, create HTML elements to display (date, icon, temp, wind speed, humidity) -- DONE
+    - Append these to forecastContainer -- DONE -->
 
 <!-- 6. Update search history (updateSearchHistory function)
     - Add the searched City to the searchHistory array -- DONE

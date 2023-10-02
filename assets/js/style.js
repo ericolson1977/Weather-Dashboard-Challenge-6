@@ -1,6 +1,7 @@
 // alert("working");
 var searchButton = document.getElementById("search-btn");
-var displaySection = document.getElementById("display")
+var displaySection = document.getElementById("display");
+var forecastContainer = document.querySelector(".five-day-forecast");
 
 function fetchCurrentWeather(event) {
     var apiKey = "a10bc788276a7c7ca6f89df126f2779a";
@@ -76,26 +77,53 @@ function fetchForecastData() {
             });
             
             var firstFiveObjects = filteredObjects.slice(0, 5);
-            console.log(firstFiveObjects);
+            // console.log(firstFiveObjects);
             firstFiveObjects.forEach(function (targetObject, index) {
 
-                var forecastDateElement = document.getElementById("forecast-date-" + index);
-                var forecastIconElement = document.getElementById("forecast-icon-" + index);
-                var forecastTempElement = document.getElementById("forecast-temp-" + index);
-                var forecastWindElement = document.getElementById("forecast-wind-" + index);
-                var forecastHumidityElement = document.getElementById("forecast-humidity-" + index);
+                var forecastDiv = document.createElement("div");
+                var forecastList = document.createElement("ul");
+                var forecastListItem1 = document.createElement("li");
+                var forecastListItem2 = document.createElement("li");
+                var forecastListItem3 = document.createElement("li");
+                var forecastListItem4 = document.createElement("li");
+                var forecastListItem5 = document.createElement("li");
+                var weatherIcon = document.createElement("img")
 
-                var forecastDate = targetObject.dt_txt;
+                // var forecastDateElement = document.getElementById("forecast-date-" + index);
+                // var forecastIconElement = document.getElementById("forecast-icon-" + index);
+                // var forecastTempElement = document.getElementById("forecast-temp-" + index);
+                // var forecastWindElement = document.getElementById("forecast-wind-" + index);
+                // var forecastHumidityElement = document.getElementById("forecast-humidity-" + index);
                 var forecastIcon = targetObject.weather[0].icon;
-                var forecastTemp = ((targetObject.main.temp * 9) / 5 - 459.67).toFixed(2);
-                var forecastWindSpeed = targetObject.wind.speed;
-                var forecastHumidity = targetObject.main.humidity;
-
-                console.log(forecastDate);
-                console.log(forecastIcon);
-                console.log("Temp: " + forecastTemp + "°F");
-                console.log("Wind: " + forecastWindSpeed + "mph");
-                console.log("Humidity: " + forecastHumidity + "%")
+                forecastDiv.classList.add("card-column");
+                forecastList.classList.add('five-day-details');
+                forecastListItem1.classList.add("five-day-item");
+                forecastListItem2.classList.add("five-day-item");
+                forecastListItem3.classList.add("five-day-item");
+                forecastListItem4.classList.add("five-day-item");
+                forecastListItem5.classList.add("five-day-item");
+                forecastListItem1.textContent= "Date: " + targetObject.dt_txt;
+                var iconUrl = "https://openweathermap.org/img/wn/" + forecastIcon + ".png"
+                forecastListItem3.textContent = "Temp: " + ((targetObject.main.temp * 9) / 5 - 459.67).toFixed(2) + "°F";
+                forecastListItem4.textContent = "Wind: " + targetObject.wind.speed + "mph";
+                forecastListItem5.textContent = "Humidity: " + targetObject.main.humidity + "%";
+                weatherIcon.setAttribute("src", iconUrl)
+                forecastListItem2.append(weatherIcon);
+                // var forecastDate = targetObject.dt_txt;
+                // var forecastTemp = ((targetObject.main.temp * 9) / 5 - 459.67).toFixed(2);
+                // var forecastWindSpeed = targetObject.wind.speed;
+                // var forecastHumidity = targetObject.main.humidity;
+                forecastList.append(forecastListItem1);
+                forecastList.append(forecastListItem2);
+                forecastList.append(forecastListItem3);
+                forecastList.append(forecastListItem4);
+                forecastList.append(forecastListItem5);
+                forecastDiv.append(forecastList)
+                forecastContainer.append(forecastDiv);
+               
+                // console.log("Temp: " + forecastTemp + "°F");
+                // console.log("Wind: " + forecastWindSpeed + "mph");
+                // console.log("Humidity: " + forecastHumidity + "%")
 
                 // forecastDateElement.textContent = forecastDate;
                 // forecastIconElement.src = "https://openweathermap.org/img/wn/" + forecastIcon + ".png";
