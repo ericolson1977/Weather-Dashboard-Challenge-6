@@ -1,8 +1,8 @@
-// alert("working");
 var searchButton = document.getElementById("search-btn");
 var displaySection = document.getElementById("display");
 var forecastContainer = document.querySelector(".five-day-forecast");
 
+// this function gets the current weather data from a city from the search box or from the previous searches
 function fetchCurrentWeather(event) {
     var apiKey = "a10bc788276a7c7ca6f89df126f2779a";
     var cityName = document.getElementById("city-input").value;
@@ -26,7 +26,7 @@ function fetchCurrentWeather(event) {
             return response.json();
         })
         .then(function (data) {
-            // console.log(data)
+
             var cityNameElement = document.getElementById("city-name");
             var currentDateElement = document.getElementById("current-date")
             var iconElement = document.getElementById("weather-icon");
@@ -48,15 +48,10 @@ function fetchCurrentWeather(event) {
             tempElement.textContent = "Temp: " + temp + "°F";
             windElement.textContent = "Wind: " + windSpeed + "mph";
             humidityElement.textContent = "Humidity: " + humidity + "%";
-
-            // console.log(cityName);
-            // console.log(icon);
-            // console.log("Temp: " + temp + "°F");
-            // console.log("Wind: " + windSpeed + "mph");
-            // console.log("Humidity: " + humidity + "%")
         });
 }
 
+// this function gets the 5 day forecast from a city from the search box or from the previous searches
 function fetchForecastData() {
     var apiKey = "a10bc788276a7c7ca6f89df126f2779a";
     var cityName = document.getElementById("city-input").value;
@@ -70,14 +65,15 @@ function fetchForecastData() {
             return response.json();
         })
         .then(function (data) {
+            forecastContainer.innerHTML = "";
 
             var filteredObjects = data.list.filter(function (item) {
                 return item.dt_txt.endsWith("15:00:00");
 
             });
-            
+
             var firstFiveObjects = filteredObjects.slice(0, 5);
-            // console.log(firstFiveObjects);
+
             firstFiveObjects.forEach(function (targetObject, index) {
 
                 var forecastDiv = document.createElement("div");
@@ -88,13 +84,8 @@ function fetchForecastData() {
                 var forecastListItem4 = document.createElement("li");
                 var forecastListItem5 = document.createElement("li");
                 var weatherIcon = document.createElement("img")
-
-                // var forecastDateElement = document.getElementById("forecast-date-" + index);
-                // var forecastIconElement = document.getElementById("forecast-icon-" + index);
-                // var forecastTempElement = document.getElementById("forecast-temp-" + index);
-                // var forecastWindElement = document.getElementById("forecast-wind-" + index);
-                // var forecastHumidityElement = document.getElementById("forecast-humidity-" + index);
                 var forecastIcon = targetObject.weather[0].icon;
+
                 forecastDiv.classList.add("card-column");
                 forecastList.classList.add('five-day-details');
                 forecastListItem1.classList.add("five-day-item");
@@ -102,17 +93,18 @@ function fetchForecastData() {
                 forecastListItem3.classList.add("five-day-item");
                 forecastListItem4.classList.add("five-day-item");
                 forecastListItem5.classList.add("five-day-item");
-                forecastListItem1.textContent= "Date: " + targetObject.dt_txt;
+
+                var timestamp = targetObject.dt;
+                var formattedDate = dayjs.unix(timestamp).format("MMM DD, YYYY");
+
+                forecastListItem1.textContent = "Date: " + formattedDate;
                 var iconUrl = "https://openweathermap.org/img/wn/" + forecastIcon + ".png"
                 forecastListItem3.textContent = "Temp: " + ((targetObject.main.temp * 9) / 5 - 459.67).toFixed(2) + "°F";
                 forecastListItem4.textContent = "Wind: " + targetObject.wind.speed + "mph";
                 forecastListItem5.textContent = "Humidity: " + targetObject.main.humidity + "%";
                 weatherIcon.setAttribute("src", iconUrl)
                 forecastListItem2.append(weatherIcon);
-                // var forecastDate = targetObject.dt_txt;
-                // var forecastTemp = ((targetObject.main.temp * 9) / 5 - 459.67).toFixed(2);
-                // var forecastWindSpeed = targetObject.wind.speed;
-                // var forecastHumidity = targetObject.main.humidity;
+
                 forecastList.append(forecastListItem1);
                 forecastList.append(forecastListItem2);
                 forecastList.append(forecastListItem3);
@@ -120,22 +112,11 @@ function fetchForecastData() {
                 forecastList.append(forecastListItem5);
                 forecastDiv.append(forecastList)
                 forecastContainer.append(forecastDiv);
-               
-                // console.log("Temp: " + forecastTemp + "°F");
-                // console.log("Wind: " + forecastWindSpeed + "mph");
-                // console.log("Humidity: " + forecastHumidity + "%")
-
-                // forecastDateElement.textContent = forecastDate;
-                // forecastIconElement.src = "https://openweathermap.org/img/wn/" + forecastIcon + ".png";
-                // forecastIconElement.alt = "Weather Icon";
-                // forecastTempElement.textContent = "Temp: " + forecastTemp + "°F";
-                // forecastWindElement.textContent = "Wind: " + forecastWindSpeed + "mph";
-                // forecastHumidityElement.textContent = "Humidity: " + forecastHumidity + "%";
-
             });
         });
 }
 
+// this fucntion stores the city input in the searach box to local storage
 function saveSearch(city) {
     var searchHistory = JSON.parse(localStorage.getItem("searchHistory")) || [];
 
@@ -144,10 +125,9 @@ function saveSearch(city) {
     }
 
     localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
-    // console.log(searchHistory);
-
 }
 
+// this function renders the previous searches from local storage into a list of clickable buttons
 function renderSearchHistory() {
     var searchHistoryContainer = document.querySelector(".search-history");
     var searchHistory = JSON.parse(localStorage.getItem("searchHistory")) || [];
@@ -170,6 +150,7 @@ function renderSearchHistory() {
     });
 }
 
+// evetn listnener to capture the click on the search button
 searchButton.addEventListener('click', function (event) {
     event.preventDefault();
     fetchCurrentWeather(event);
@@ -177,4 +158,5 @@ searchButton.addEventListener('click', function (event) {
     document.getElementById("city-input").value = "";
 })
 
+// this calls the renderSearchHistory as the page loads to have the previous searches persist on the page
 renderSearchHistory()
