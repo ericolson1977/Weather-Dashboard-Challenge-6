@@ -14,7 +14,7 @@ https://github.com/ericolson1977/Weather-Dashboard-Challenge-6
 
 https://ericolson1977.github.io/Weather-Dashboard-Challenge-6/
 
-![Alt text](ericolson1977.github.io_Weather-Dashboard-Challenge-6_.png)
+![Alt text](assets/images/ericolson1977.github.io_Weather-Dashboard-Challenge-6_.png)
 
 ## Credits
 
